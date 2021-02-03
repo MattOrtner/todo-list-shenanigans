@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import './App.css'
+import Header from './components/Header'
+import Form from './components/Form'
+import List from './components/List'
 
-function App() {
+
+
+const initialState = []
+  
+const App = () => {
+  const [list, setList] = useState(initialState)
+  const [textTimeValues, setTextTimeValues] = useState({})
+  const [edit, setEdit] = useState(false)
+  const [editedItem, setEditItem] = useState({})
+  // const [taskTimeValue, setTimeValue] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header />
+      <Form
+        setList={setList}
+        list={list}
+        textTimeValues={textTimeValues}
+        setTextTimeValues={setTextTimeValues}
+        edit={edit}
+        setEdit={setEdit}
+        editedItem={editedItem}
+        setEditItem={setEditItem}
+        // taskTimeValue={taskTimeValue}
+        // setTimeValue={setTimeValue}
+      />
+      <List
+        setList={setList}
+        list={list}
+        textTimeValues={textTimeValues}
+        setTextTimeValues={setTextTimeValues}
+        edit={edit}
+        setEdit={setEdit} 
+        editedItem={editedItem}
+        setEditItem={setEditItem}
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
