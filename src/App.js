@@ -18,6 +18,7 @@ const App = () => {
   return (
     <div className='App'>
       <Header />
+      <h1>Happy Birthday</h1>
       <Form
         setList={setList}
         list={list}
