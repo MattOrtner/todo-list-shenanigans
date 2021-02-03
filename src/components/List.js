@@ -12,6 +12,7 @@ const List = ({ list, setList, setValue, textValue, edit, setEdit, editedItem, s
           <Todo
             todo={todo}
             list={list}
+            setList={setList}
             textValue={textValue}
             edit={edit}
             setEdit={setEdit} 

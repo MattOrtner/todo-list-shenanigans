@@ -10,32 +10,31 @@ const initialState = []
   
 const App = () => {
   const [list, setList] = useState(initialState)
-  const [textTimeValues, setTextTimeValues] = useState({})
+  const [todo, setTodo] = useState({text: '', time: ''})
   const [edit, setEdit] = useState(false)
   const [editedItem, setEditItem] = useState({})
-  // const [taskTimeValue, setTimeValue] = useState(0)
 
+  // const fn = () => {
+
+  // }
   return (
     <div className='App'>
       <Header />
-      <h1>Happy Birthday</h1>
       <Form
-        setList={setList}
         list={list}
-        textTimeValues={textTimeValues}
-        setTextTimeValues={setTextTimeValues}
+        setList={setList}
+        todo={todo}
+        setTodo={setTodo}
         edit={edit}
         setEdit={setEdit}
         editedItem={editedItem}
         setEditItem={setEditItem}
-        // taskTimeValue={taskTimeValue}
-        // setTimeValue={setTimeValue}
       />
       <List
         setList={setList}
         list={list}
-        textTimeValues={textTimeValues}
-        setTextTimeValues={setTextTimeValues}
+        todo={todo}
+        setTodo={setTodo}
         edit={edit}
         setEdit={setEdit} 
         editedItem={editedItem}

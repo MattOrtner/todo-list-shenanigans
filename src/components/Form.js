@@ -1,26 +1,27 @@
 import React from 'react'
 
-const Form = ({ setList, list, textTimeValues, setTextTimeValues, edit, setEdit, editedItem, setEditItem, taskTimeValue, setTimeValue }) => {
+const Form = ({ setList, list, todo, setTodo, edit, setEdit, editedItem, setEditItem }) => {
 
   const handleChange = (e) => {
-    const target = e.target.name
-    const value = target.type === 'text' ? target.text : target.time
-    const name = target.name
-    setTextTimeValues({...textTimeValues, [name]: value })
+    const name = e.target.name
+    const value = e.target.value
+    console.log(todo)
+
+    setTodo({...todo, [name]: value })
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
     if (edit === true) {
       const filteredList = list.filter((el) => el.id !== editedItem.id)
-      setList([{ text: textTimeValues.text, id: editedItem.id, time: textTimeValues.time }, ...filteredList])
+      setList([{ text: todo.text, id: editedItem.id, time: todo.time }, ...filteredList])
       setEditItem('')
       setEdit(false)
     } else {
-      setList([...list, { text: textTimeValues, id: Math.random(), time: taskTimeValue }])
-
+      setList([...list, { text: todo.text, id: Math.random(), time: todo.time }])
     }
-    console.log(textTimeValues)
+
+    setTodo({text:'', time: ''})
+    e.preventDefault()
   }
 
   return (
@@ -29,7 +30,7 @@ const Form = ({ setList, list, textTimeValues, setTextTimeValues, edit, setEdit,
         <input
           type="text"
           name="text"
-          value={textTimeValues.text}
+          value={todo.text}
           placeholder='Something'
           className="todo input"
           autoComplete='off'
@@ -39,7 +40,7 @@ const Form = ({ setList, list, textTimeValues, setTextTimeValues, edit, setEdit,
         <input
           type="number"
           name="time"
-          value={textTimeValues.time}
+          value={todo.time}
           placeholder="Duration"
           autoComplete="off"
           onChange={handleChange}
