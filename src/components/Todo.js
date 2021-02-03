@@ -8,12 +8,14 @@ const Todo = ({ todo, list, setList, textValue, setValue, setEdit, editedItem, s
     setList(newList)
   }
 
+
   const handleEdit = () => {
     setValue(todo.text)
     setEdit(true)
     setEditItem(todo)
   }
 
+  
   return (
     <li className='task'>
       <span className='todo-title'>{todo.text}</span>
