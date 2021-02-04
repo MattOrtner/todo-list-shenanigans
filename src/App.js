@@ -11,7 +11,6 @@ const initialState = []
 const App = () => {
   const [list, setList] = useState(initialState)
   const [todo, setTodo] = useState({text: '', time: ''})
-  const [edit, setEdit] = useState(false)
   const [editedItem, setEditItem] = useState({})
 
   // const fn = () => {
@@ -25,8 +24,6 @@ const App = () => {
         setList={setList}
         todo={todo}
         setTodo={setTodo}
-        edit={edit}
-        setEdit={setEdit}
         editedItem={editedItem}
         setEditItem={setEditItem}
       />
@@ -35,8 +32,6 @@ const App = () => {
         list={list}
         todo={todo}
         setTodo={setTodo}
-        edit={edit}
-        setEdit={setEdit} 
         editedItem={editedItem}
         setEditItem={setEditItem}
       />

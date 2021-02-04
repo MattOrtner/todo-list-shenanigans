@@ -1,7 +1,7 @@
 import React from 'react'
 import Todo from './Todo'
 
-const List = ({ list, setList, setValue, textValue, edit, setEdit, editedItem, setEditItem}) => {
+const List = ({ setTodo, list, setList, setValue, textValue, edit, setEdit, editedItem, setEditItem}) => {
 
   return (
     <div className='list-container'>
@@ -11,6 +11,7 @@ const List = ({ list, setList, setValue, textValue, edit, setEdit, editedItem, s
         {list.map((todo) => 
           <Todo
             todo={todo}
+            setTodo={setTodo}
             list={list}
             setList={setList}
             textValue={textValue}

@@ -11,15 +11,7 @@ const Form = ({ setList, list, todo, setTodo, edit, setEdit, editedItem, setEdit
   }
 
   const handleSubmit = (e) => {
-    if (edit === true) {
-      const filteredList = list.filter((el) => el.id !== editedItem.id)
-      setList([{ text: todo.text, id: editedItem.id, time: todo.time }, ...filteredList])
-      setEditItem('')
-      setEdit(false)
-    } else {
-      setList([...list, { text: todo.text, id: Math.random(), time: todo.time }])
-    }
-
+    setList([...list, { text: todo.text, id: Math.random(), time: todo.time }])
     setTodo({text:'', time: ''})
     e.preventDefault()
   }
