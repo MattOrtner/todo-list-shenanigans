@@ -9,7 +9,6 @@ const Todo = ({ todo, setTodo, list, setList, editedItem, setEditItem}) => {
     setList(newList)
   }
 
-
   const handleEdit = () => {
     setEditable (true)
     setEditItem(todo)
@@ -18,17 +17,16 @@ const Todo = ({ todo, setTodo, list, setList, editedItem, setEditItem}) => {
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
-    console.log(todo)
     setTodo({ ...todo, [name]: value })
   }
 
   const handleUpdate = (e) => {
+    e.preventDefault()
     const filteredList = list.filter((el) => el.id !== editedItem.id)
     setList([{ text: todo.text, id: editedItem.id, time: todo.time }, ...filteredList])
     setEditItem('')
-    setEditable(false)
+    // setEditable(false)
     setTodo({ text: '', time: '' })
-    e.preventDefault()
   }
 
   return (
@@ -37,8 +35,8 @@ const Todo = ({ todo, setTodo, list, setList, editedItem, setEditItem}) => {
         <>
           <form onSubmit={handleUpdate} >
             <input type="text" value={todo.text}  name="text" onChange={handleChange} />
-            <input type="number" value={todo.time} name="time" onChange={handleChange}/>
-            <button className="btn" type="submit">UPDATE</button>
+            <input type="number" value={todo.time} name="time" onChange={handleChange} />
+              <button className="btn" type="submit">UPDATE</button>
           </form>
         </>
         :

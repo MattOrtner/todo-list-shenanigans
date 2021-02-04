@@ -5,8 +5,6 @@ const Form = ({ setList, list, todo, setTodo, edit, setEdit, editedItem, setEdit
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
-    console.log(todo)
-
     setTodo({...todo, [name]: value })
   }
 
