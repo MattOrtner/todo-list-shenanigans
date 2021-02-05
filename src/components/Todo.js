@@ -25,7 +25,6 @@ const Todo = ({ todo, setTodo, list, setList, editedItem, setEditItem}) => {
     const filteredList = list.filter((el) => el.id !== editedItem.id)
     setList([{ text: todo.text, id: editedItem.id, time: todo.time }, ...filteredList])
     setEditItem('')
-    // setEditable(false)
     setTodo({ text: '', time: '' })
   }
 

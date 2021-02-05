@@ -62,6 +62,7 @@ body{
   font-style: italic;
   font-weight: 800;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border: .5rem dotted peru;
+  border: .2rem solid peru;
+  border-radius: 2rem;
   padding: 1rem;  
 }
