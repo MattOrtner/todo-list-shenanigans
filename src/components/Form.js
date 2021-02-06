@@ -1,17 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const Form = ({ setList, list, todo, setTodo, edit, setEdit, editedItem, setEditItem }) => {
-
+const Form = ({ addTodo }) => {
+  const [newTodo, setNewTodo] = useState({ text: '', time: '' })
+  
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
-    setTodo({...todo, [name]: value })
+    setNewTodo({...newTodo, [name]: value })
   }
 
   const handleSubmit = (e) => {
-    setList([...list, { text: todo.text, id: Math.random(), time: todo.time }])
-    setTodo({text:'', time: ''})
     e.preventDefault()
+    addTodo({...newTodo, id: Math.random()})
+    // setList([...list, { text: newTodo.text, id: Math.random(), time: newTodo.time }])
+    setNewTodo({text:'', time: ''})
   }
 
   return (
@@ -20,7 +22,7 @@ const Form = ({ setList, list, todo, setTodo, edit, setEdit, editedItem, setEdit
         <input
           type="text"
           name="text"
-          value={todo.text}
+          value={newTodo.text}
           placeholder='Something'
           className="todo input"
           autoComplete='off'
@@ -30,7 +32,7 @@ const Form = ({ setList, list, todo, setTodo, edit, setEdit, editedItem, setEdit
         <input
           type="number"
           name="time"
-          value={todo.time}
+          value={newTodo.time}
           placeholder="Duration"
           autoComplete="off"
           onChange={handleChange}

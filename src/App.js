@@ -10,30 +10,19 @@ const initialState = []
   
 const App = () => {
   const [list, setList] = useState(initialState)
-  const [todo, setTodo] = useState({text: '', time: ''})
-  const [editedItem, setEditItem] = useState({})
+  const addTodo = (todo) => {
+    setList([...list, todo])
+  }
 
-  // const fn = () => {
-
-  // }
   return (
     <div className='App'>
       <Header />
       <Form
-        list={list}
-        setList={setList}
-        todo={todo}
-        setTodo={setTodo}
-        editedItem={editedItem}
-        setEditItem={setEditItem}
+        addTodo={addTodo}
       />
       <List
-        setList={setList}
         list={list}
-        todo={todo}
-        setTodo={setTodo}
-        editedItem={editedItem}
-        setEditItem={setEditItem}
+        setList={setList}
       />
     </div>
   )
