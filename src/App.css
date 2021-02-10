@@ -1,6 +1,7 @@
-body{
+body {
   background-color: black;
 }
+
 .App {
   display: flex;
   justify-content: center;
@@ -44,16 +45,18 @@ body{
   display: flex;
   flex-direction: row;
   margin-bottom: .25rem;
+  justify-content: space-evenly;
 }
 
 .todo-title {
-  flex-grow: 2;
-
+  /* flex-grow: 2; */
 }
+
 .btn-container {
   display: flex;
   justify-content: flex-end;
 }
+
 .btn {
   flex-grow: 1;
 }
@@ -64,5 +67,25 @@ body{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border: .2rem solid peru;
   border-radius: 2rem;
-  padding: 1rem;  
+  padding: 1rem;
+}
+
+.timer {
+  display: flex;
+}
+
+.pause-btn {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.start-btn {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.add-time {
+  border: 1px solid black;
+  width: 20px;
+  text-align: center;
 }

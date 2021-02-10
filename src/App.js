@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './App.css'
-import Header from './components/Header'
+import Title from './components/Title'
 import Form from './components/Form'
 import List from './components/List'
 
@@ -16,14 +16,9 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Header />
-      <Form
-        addTodo={addTodo}
-      />
-      <List
-        list={list}
-        setList={setList}
-      />
+      <Title/>
+      <Form addTodo={addTodo} />
+      <List list={list} setList={setList} />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import Timer from './Timer'
 
 const Todo = ({ text, time, deleteTodo, i, updateTodo }) => {
   const [isEditable, setEditable] = useState(false)
@@ -60,7 +60,8 @@ const Todo = ({ text, time, deleteTodo, i, updateTodo }) => {
         :
         <>
           <span className='todo-title'>{text}</span>
-          <span className='todo-title'>{time} minutes</span>
+          {/* <span className='todo-title'>{time} minutes</span> */}
+          <Timer time={time} />
           <div className="btn-container">
             <button className="btn" onClick={handleEdit}>edit</button>
             <button className="btn" onClick={() => deleteTodo(i)}>delete</button>
