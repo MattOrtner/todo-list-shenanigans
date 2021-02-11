@@ -59,8 +59,7 @@ const Todo = ({ text, time, deleteTodo, i, updateTodo }) => {
         </>
         :
         <>
-          <span className='todo-title'>{text}</span>
-          {/* <span className='todo-title'>{time} minutes</span> */}
+          <span className='todo-title' >{text}</span>
           <Timer time={time} />
           <div className="btn-container">
             <button className="btn" onClick={handleEdit}>edit</button>

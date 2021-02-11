@@ -33,7 +33,7 @@ const Form = ({ addTodo }) => {
           type="number"
           name="time"
           value={newTodo.time}
-          placeholder="Duration"
+          placeholder="Minutes"
           autoComplete="off"
           onChange={handleChange}
         />

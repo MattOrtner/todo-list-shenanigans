@@ -1,26 +1,31 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
+import {useInterval} from '../hooks/useInterval'
 
 const Timer = ({ time }) => {
-  const [timerOn, setTimerOn] = useState(false)
-  const [timerMinutes, setTimerMinutes] = useState(time)
-  const [timerSeconds, setTimerSeconds] = useState('00')
-
-  let Interval
+  const [isTimerOn, setTimerOn] = useState(false)
+  const [timerMinutes, setTimerMinutes] = useState(null)
+  const [timerSeconds, setTimerSeconds] = useState(0)
+  const [intervalId, setIntervalId] = useState(null)
+  
+  useEffect(() => {
+    setTimerMinutes(time)
+  }, [time])
 
   const startButton = () => {
-    clearInterval(Interval)
-    Interval = setInterval(startTimer, 1000)
+    clearInterval(intervalId)
+    setIntervalId(setInterval(startTimer, 1000))
     setTimerOn(true)
   }
 
   const startTimer = () => {
-    if (timerSeconds === 0 || timerSeconds === '00') {
+    if (timerSeconds === 0) {
       setTimerMinutes((timerMinutes - 1))
-      setTimerSeconds(59)
-    } else if (timerSeconds <= 9){
-      setTimerSeconds('0' + timerSeconds)
+      setTimerSeconds(59) 
+    // } else if (timerSeconds <= 9){
+    //   setTimerSeconds(timerSeconds)
+    } else {
+      setTimerSeconds(timerSeconds - 1)
     }
-    setTimerSeconds(timerSeconds - 1)
   }
 
   const pauseTimer = () => {
@@ -34,12 +39,12 @@ const Timer = ({ time }) => {
 
   return (
     <div className="timer">
-      {timerOn ? 
+      {isTimerOn ? 
         <div className="pause-btn" onClick={pauseTimer} >pause</div>
         :
         <div className="start-btn" onClick={startButton} >start</div>
       }
-      <div className="time-display">{timerMinutes}:{timerSeconds} </div>
+      <div className="time-display">{timerMinutes}m {timerSeconds}s</div>
       <div className="add-time" onClick={addTime}>+</div>
     </div>
   )
