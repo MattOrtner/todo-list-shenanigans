@@ -5,15 +5,19 @@ const Timer = ({ time }) => {
   const [isTimerOn, setTimerOn] = useState(false)
   const [timerMinutes, setTimerMinutes] = useState(null)
   const [timerSeconds, setTimerSeconds] = useState(0)
-  const [intervalId, setIntervalId] = useState(null)
+  // const [intervalId, setIntervalId] = useState(null)
   
   useEffect(() => {
     setTimerMinutes(time)
   }, [time])
 
+  useInterval(() => {
+    startTimer()
+  }, isTimerOn ? 1000 : null)
+
   const startButton = () => {
-    clearInterval(intervalId)
-    setIntervalId(setInterval(startTimer, 1000))
+    // clearInterval(intervalId)
+    // setIntervalId(setInterval(startTimer, 1000))
     setTimerOn(true)
   }
 
@@ -33,7 +37,6 @@ const Timer = ({ time }) => {
   }
 
   const addTime = () => {
-    console.log(timerMinutes)
     setTimerMinutes((timerMinutes + 3))
   }
 
