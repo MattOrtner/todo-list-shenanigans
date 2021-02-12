@@ -15,10 +15,9 @@ const List = ({ list, setList }) => {
     setList(updatedList)
   }
 
-  let totalTime = 0
-  const findTotalTime = () => {
+  const totalTime = () => {
     if (list.length) {
-      totalTime = list.reduce((a, b) => a + parseInt(b.time), totalTime)
+      return list.reduce((a, b) => a + parseInt(b.time), 0)
     }
   }
 
@@ -27,8 +26,7 @@ const List = ({ list, setList }) => {
       <h2>What's left...</h2>
       {list.length ? 
         <ul className='list'>
-          {findTotalTime()}
-          <h3 className="total-time">{totalTime}</h3>
+          <h3 className="total-time">{totalTime()}</h3>
           {list.map((todo, i) => {
             return <Todo
               i={i}
