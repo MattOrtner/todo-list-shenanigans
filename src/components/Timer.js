@@ -5,7 +5,6 @@ const Timer = ({ time }) => {
   const [isTimerOn, setTimerOn] = useState(false)
   const [timerMinutes, setTimerMinutes] = useState(null)
   const [timerSeconds, setTimerSeconds] = useState(0)
-  // const [intervalId, setIntervalId] = useState(null)
   
   useEffect(() => {
     setTimerMinutes(time)
@@ -16,8 +15,6 @@ const Timer = ({ time }) => {
   }, isTimerOn ? 1000 : null)
 
   const startButton = () => {
-    // clearInterval(intervalId)
-    // setIntervalId(setInterval(startTimer, 1000))
     setTimerOn(true)
   }
 
@@ -25,8 +22,6 @@ const Timer = ({ time }) => {
     if (timerSeconds === 0) {
       setTimerMinutes((timerMinutes - 1))
       setTimerSeconds(59) 
-    // } else if (timerSeconds <= 9){
-    //   setTimerSeconds(timerSeconds)
     } else {
       setTimerSeconds(timerSeconds - 1)
     }

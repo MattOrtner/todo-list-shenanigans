@@ -12,7 +12,6 @@ const Form = ({ addTodo }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     addTodo({...newTodo, id: Math.random()})
-    // setList([...list, { text: newTodo.text, id: Math.random(), time: newTodo.time }])
     setNewTodo({text:'', time: ''})
   }
 

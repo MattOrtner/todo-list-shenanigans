@@ -1,16 +1,5 @@
 # TIMERS
-## ADDING A TIMER TO EACH TODO
-function TIMER(durationFromTodo) {
-   cosnt newInterval = use setInterval(callBackFN (durationFromTodo) {
-    durationFromTodo -= 1
-    if ( durantionFromTodo === 0 ) {
-      then do something else like make a sound / send an alert to add time or check as complete
-    }
-    clearInterval(newInterval)
-  }, 1000)
-}
-will need a start, pause buttons
-[what is clicked when completed]
+## completed button
 
 from here that data needs to be stored somewhere to be able to be referred back
 to for a progress report type print out
