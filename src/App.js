@@ -3,7 +3,7 @@ import './App.css'
 import Title from './components/Title'
 import Form from './components/Form'
 import List from './components/List'
-
+import Landing from './components/Landing'
 
 
 const initialState = []
@@ -16,9 +16,15 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Title/>
-      <Form addTodo={addTodo} />
-      <List list={list} setList={setList} />
+      <Title />
+      <div className="middle-container">
+        <div className="form-container">
+          <Form addTodo={addTodo} />
+          <List list={list} setList={setList} />
+        </div>
+        <Landing />
+      </div>
+
     </div>
   )
 }
