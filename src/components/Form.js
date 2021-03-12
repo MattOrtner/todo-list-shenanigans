@@ -23,7 +23,7 @@ const Form = ({ addTodo }) => {
           name="text"
           value={newTodo.text}
           placeholder='Something'
-          className="todo input"
+          className="inputs"
           autoComplete='off'
           onChange={handleChange}
           autoFocus
@@ -33,10 +33,11 @@ const Form = ({ addTodo }) => {
           name="time"
           value={newTodo.time}
           placeholder="Minutes"
+          className="inputs"
           autoComplete="off"
           onChange={handleChange}
         />
-        <button type="submit">Add</button>
+        <button type="submit" className="input button">Add</button>
       </form>
     </div>
   )

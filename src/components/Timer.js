@@ -32,7 +32,9 @@ const Timer = ({ time }) => {
   }
 
   const addTime = () => {
-    setTimerMinutes((timerMinutes + 3))
+    console.log(timerMinutes)
+    const addTime = parseInt(timerMinutes) + 3
+    setTimerMinutes(addTime)
   }
 
   return (

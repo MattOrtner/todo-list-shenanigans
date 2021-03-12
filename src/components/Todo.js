@@ -16,16 +16,6 @@ const Todo = ({ text, time, deleteTodo, i, updateTodo }) => {
     const value = e.target.value
     setEditedTodo({...editedTodo, [name]: value})
   }
-  /**
-   * handleChange
-   * 1. create state to store editedTodo
-   * 
-   * handleUpdate
-   * 2. map through list compare index === i 
-   * 3. replace text: editedTodo.text, time: editedTodo.time
-   * 3. setList(mappedArray)
-   * 
-   */
 
   const handleUpdate = (e) => {
     e.preventDefault()
@@ -59,7 +49,7 @@ const Todo = ({ text, time, deleteTodo, i, updateTodo }) => {
         </>
         :
         <>
-          <span className='todo-title' >{text}</span>
+          <div className='todo-title'>{text}</div>
           <Timer time={time} />
           <div className="btn-container">
             <button className="btn" onClick={handleEdit}>edit</button>
