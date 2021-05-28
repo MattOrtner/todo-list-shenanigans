@@ -4,6 +4,9 @@ const Form = ({ addTodo }) => {
   const [newTodo, setNewTodo] = useState({ text: '', time: '' })
   
   const handleChange = (e) => {
+    console.log('e', e)
+    console.log('e.target', e.target)
+    console.log('e.target.value', e.target.value)
     const name = e.target.name
     const value = e.target.value
     setNewTodo({...newTodo, [name]: value })
@@ -18,6 +21,12 @@ const Form = ({ addTodo }) => {
   return (
     <div className="todo-form">
       <form onSubmit={handleSubmit}>
+        <div className="radio-importance-group">
+          <input type="radio" value="1" name="importance" id="importance" onChange={handleChange}/> 1
+          <input type="radio" value="2" name="importance" id="importance" onChange={handleChange} /> 2
+          <input type="radio" value="3" name="importance" id="importance" onChange={handleChange} /> 3
+          <input type="radio" value="4" name="importance" id="importance" onChange={handleChange} /> 4
+        </div>
         <input
           type="text"
           name="text"

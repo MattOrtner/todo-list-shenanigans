@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Landing = () => {
+const Landing = (props) => {
   return (
     <div className="landing">
-      Here is the landing for dragging your todo list 
+      <div className="landing-title">{props.title}</div>
+      <p className="drag">You can drag heres</p>
     </div>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;
