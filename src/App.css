@@ -12,14 +12,45 @@ body {
 
 .middle-container {
   display: flex;
+  justify-content: center;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
 }
-
 .todo-form {
   display: flex;
   justify-content: center;
   height: 75px;
 }
+
+.landing-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+  border: 3px solid salmon;
+}
+.landing {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.drag {
+  height: 100px;
+}
+
+#text-area {
+  width: 100px;
+}
+
+.radio-importance-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-rows: repeat(2, 1fr); */
+}
+
 .inputs {
   height: 1.5rem;
 }
@@ -35,8 +66,9 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
+  border: 1px solid blueviolet;
 }
-.unordered-todo{
+.unordered-todo {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -47,10 +79,10 @@ body {
 .task {
   border: 1px solid gray;
   border-radius: 3px;
-  padding: .5rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: row;
-  margin-bottom: .25rem;
+  margin: 0.25rem;
   justify-content: space-evenly;
 }
 
@@ -66,14 +98,17 @@ body {
 .no-tasks {
   font-style: italic;
   font-weight: 800;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border: .2rem solid peru;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 0.2rem solid peru;
   border-radius: 2rem;
   padding: 1rem;
 }
 
 .timer {
   display: flex;
+  justify-content: space-between;
+  margin: 5px;
 }
 
 .pause-btn {
@@ -84,10 +119,13 @@ body {
 .start-btn {
   text-align: center;
   border: 1px solid black;
+  border-radius: 10px;
+  width: 50px;
 }
 
 .add-time {
   border: 1px solid black;
+  border-radius: 50%;
   width: 20px;
   text-align: center;
 }
@@ -109,8 +147,4 @@ body {
 .title {
   display: flex;
   justify-content: center;
-}
-
-.input .button {
-  border: 1px dotted black;
 }

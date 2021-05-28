@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Title = () => {
   return (
     <div className="title">
-      <h1 >TITLE</h1>
+      <h1>TITLE</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Title
+export default Title;
