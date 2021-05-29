@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
+import Draggable from "react-draggable";
 
 const Todo = ({ text, time, deleteTodo, i, updateTodo }) => {
   const [isEditable, setEditable] = useState(false);
@@ -24,44 +25,46 @@ const Todo = ({ text, time, deleteTodo, i, updateTodo }) => {
   };
 
   return (
-    <li className="task">
-      {isEditable ? (
-        <>
-          <form onSubmit={handleUpdate}>
-            <input
-              type="text"
-              value={editedTodo.text}
-              name="text"
-              onChange={handleChange}
-              autoComplete="off"
-            />
-            <input
-              type="number"
-              value={editedTodo.time}
-              name="time"
-              onChange={handleChange}
-              autoComplete="off"
-            />
-            <button className="btn" type="submit">
-              UPDATE
-            </button>
-          </form>
-        </>
-      ) : (
-        <>
-          <div className="todo-title">{text}</div>
-          <Timer time={time} />
-          <div className="btn-container">
-            <button className="btn" onClick={handleEdit}>
-              edit
-            </button>
-            <button className="btn" onClick={() => deleteTodo(i)}>
-              delete
-            </button>
-          </div>
-        </>
-      )}
-    </li>
+    <Draggable>
+      <li className="task">
+        {isEditable ? (
+          <>
+            <form onSubmit={handleUpdate}>
+              <input
+                type="text"
+                value={editedTodo.text}
+                name="text"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+              <input
+                type="number"
+                value={editedTodo.time}
+                name="time"
+                onChange={handleChange}
+                autoComplete="off"
+              />
+              <button className="btn" type="submit">
+                UPDATE
+              </button>
+            </form>
+          </>
+        ) : (
+          <>
+            <div className="todo-title">{text}</div>
+            <Timer time={time} />
+            <div className="btn-container">
+              <button className="btn" onClick={handleEdit}>
+                edit
+              </button>
+              <button className="btn" onClick={() => deleteTodo(i)}>
+                delete
+              </button>
+            </div>
+          </>
+        )}
+      </li>
+    </Draggable>
   );
 };
 
